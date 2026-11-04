@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/btnCancel"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cancel"
+            android:src="@drawable/ic_close"
+            android:tint="@color/on_surface" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDone"
+            style="@style/Omini.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="44dp"
+            android:text="@string/done"
+            app:icon="@drawable/ic_check" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.ominipdf.soumalya.codegarage.app.ui.crop.CropImageView
+            android:id="@+id/cropView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/previewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            android:padding="14dp"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/btnCompare"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="14dp"
+            android:background="@drawable/bg_circle_scrim"
+            android:contentDescription="@string/before_after"
+            android:padding="13dp"
+            android:src="@drawable/ic_compare"
+            android:tint="@color/white"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_panel"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:paddingTop="6dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            app:tabIndicatorColor="@color/pink_primary"
+            app:tabSelectedTextColor="@color/pink_primary"
+            app:tabTextColor="@color/on_surface_variant" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="124dp">
+
+            <LinearLayout
+                android:id="@+id/panelCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/btnAuto"
+                    style="@style/CropTool">
+
+                    <ImageView
+                        style="@style/CropToolIcon"
+                        android:src="@drawable/ic_auto" />
+
+                    <TextView
+                        style="@style/CropToolLabel"
+                        android:text="@string/crop_auto" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnFull"
+                    style="@style/CropTool">
+
+                    <ImageView
+                        style="@style/CropToolIcon"
+                        android:src="@drawable/ic_fullscreen" />
+
+                    <TextView
+                        style="@style/CropToolLabel"
+                        android:text="@string/crop_full" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnRotL"
+                    style="@style/CropTool">
+
+                    <ImageView
+                        style="@style/CropToolIcon"
+                        android:src="@drawable/ic_rotate_left" />
+
+                    <TextView
+                        style="@style/CropToolLabel"
+                        android:text="@string/rotate_left" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnRotR"
+                    style="@style/CropTool">
+
+                    <ImageView
+                        style="@style/CropToolIcon"
+                        android:src="@drawable/ic_rotate_right" />
+
+                    <TextView
+                        style="@style/CropToolLabel"
+                        android:text="@string/rotate_right" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/panelFilter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/panelAdjust"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="12dp"
+                android:visibility="gone">
+
+                <LinearLayout style="@style/AdjustRow">
+
+                    <TextView
+                        style="@style/AdjustLabel"
+                        android:text="@string/brightness" />
+
+                    <SeekBar
+                        android:id="@+id/seekBrightness"
+                        style="@style/AdjustSeek"
+                        android:max="200"
+                        android:progress="100" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/AdjustRow">
+
+                    <TextView
+                        style="@style/AdjustLabel"
+                        android:text="@string/contrast" />
+
+                    <SeekBar
+                        android:id="@+id/seekContrast"
+                        style="@style/AdjustSeek"
+                        android:max="200"
+                        android:progress="100" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/AdjustRow">
+
+                    <TextView
+                        style="@style/AdjustLabel"
+                        android:text="@string/sharpness" />
+
+                    <SeekBar
+                        android:id="@+id/seekSharpness"
+                        style="@style/AdjustSeek"
+                        android:max="100"
+                        android:progress="0" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnResetAdjust"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:padding="4dp"
+                    android:text="@string/reset"
+                    android:textColor="@color/pink_primary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

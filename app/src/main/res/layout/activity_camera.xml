@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/camera_black">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/topBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnClose"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cancel"
+                android:src="@drawable/ic_close"
+                android:tint="@color/white" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/btnAutoCapture"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/auto_capture_on"
+                android:src="@drawable/ic_auto_capture"
+                android:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/btnGrid"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/grid_label"
+                android:src="@drawable/ic_grid"
+                android:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/btnFlash"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/flash_label"
+                android:src="@drawable/ic_flash_auto"
+                android:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/btnBatch"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/mode_batch"
+                android:src="@drawable/ic_single"
+                android:tint="@color/white" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/previewArea"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/modeRow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topBar">
+
+            <FrameLayout
+                android:id="@+id/previewHolder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <androidx.camera.view.PreviewView
+                    android:id="@+id/previewView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:scaleType="fitCenter" />
+
+                <com.ominipdf.soumalya.codegarage.app.ui.camera.EdgeOverlayView
+                    android:id="@+id/overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/hintText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_scrim_pill"
+                android:paddingStart="16dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="7dp"
+                android:text="@string/camera_hint"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/zoomText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_scrim_pill"
+                android:paddingStart="14dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/modeRow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <CheckedTextView
+                android:id="@+id/modeDocument"
+                style="@style/CameraModeChip"
+                android:checked="true"
+                android:text="@string/mode_document" />
+
+            <CheckedTextView
+                android:id="@+id/modeOcr"
+                style="@style/CameraModeChip"
+                android:text="@string/mode_ocr" />
+
+            <CheckedTextView
+                android:id="@+id/modeId"
+                style="@style/CameraModeChip"
+                android:text="@string/tool_id_card" />
+
+            <CheckedTextView
+                android:id="@+id/modePassport"
+                style="@style/CameraModeChip"
+                android:text="@string/mode_passport" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnGallery"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/bg_circle_scrim"
+                android:contentDescription="@string/gallery"
+                android:padding="13dp"
+                android:src="@drawable/ic_gallery"
+                android:tint="@color/white" />
+
+            <FrameLayout
+                android:id="@+id/shutter"
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_shutter_outer"
+                android:clickable="true"
+                android:focusable="true">
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_shutter_inner" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/doneHolder"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="26dp"
+                android:visibility="invisible">
+
+                <ImageButton
+                    android:id="@+id/btnDone"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_circle_primary"
+                    android:contentDescription="@string/done"
+                    android:padding="13dp"
+                    android:src="@drawable/ic_check"
+                    android:tint="@color/pink_on_primary" />
+
+                <TextView
+                    android:id="@+id/countBadge"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="top|end"
+                    android:background="@drawable/bg_shutter_inner"
+                    android:gravity="center"
+                    android:textColor="@color/camera_black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/permissionView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/camera_black"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_camera"
+            android:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/camera_permission_title"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/camera_permission_msg"
+            android:textColor="#CCFFFFFF"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnOpenSettings"
+            style="@style/Omini.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/open_settings" />
+
+        <Button
+            android:id="@+id/btnPermGallery"
+            style="@style/Omini.Button.Tonal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/gallery" />
+    </LinearLayout>
+</FrameLayout>

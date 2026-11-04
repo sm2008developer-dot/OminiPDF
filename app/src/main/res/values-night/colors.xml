@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pink_primary">#FFB1C8</color>
+    <color name="pink_on_primary">#5E1133</color>
+    <color name="pink_container">#7B2949</color>
+    <color name="pink_on_container">#FFD9E2</color>
+    <color name="pink_secondary">#E3BDC6</color>
+    <color name="pink_on_secondary">#43292F</color>
+    <color name="pink_tertiary">#EFBD94</color>
+    <color name="bg">#181214</color>
+    <color name="surface">#201A1C</color>
+    <color name="surface_variant">#3B2E32</color>
+    <color name="card_bg">#2A2124</color>
+    <color name="chip_bg">#3A2830</color>
+    <color name="on_surface">#ECDFE1</color>
+    <color name="on_surface_variant">#D6C1C7</color>
+    <color name="outline">#52434A</color>
+    <color name="error">#FFB4AB</color>
+    <color name="success">#6BD99B</color>
+    <color name="skeleton">#3A2E32</color>
+    <color name="camera_black">#101010</color>
+    <color name="camera_scrim">#99000000</color>
+    <color name="crop_dim">#B3000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="ic_launcher_bg">#E91E63</color>
+</resources>

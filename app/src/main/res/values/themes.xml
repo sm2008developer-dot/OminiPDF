@@ -1,0 +1,132 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <style name="Base.AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+    <item name="colorPrimary">@color/pink_primary</item>
+    <item name="colorOnPrimary">@color/pink_on_primary</item>
+    <item name="colorPrimaryContainer">@color/pink_container</item>
+    <item name="colorOnPrimaryContainer">@color/pink_on_container</item>
+    <item name="colorSecondary">@color/pink_secondary</item>
+    <item name="colorOnSecondary">@color/pink_on_secondary</item>
+    <item name="colorSecondaryContainer">@color/chip_bg</item>
+    <item name="colorOnSecondaryContainer">@color/pink_on_container</item>
+    <item name="colorTertiary">@color/pink_tertiary</item>
+    <item name="android:colorBackground">@color/bg</item>
+    <item name="colorSurface">@color/surface</item>
+    <item name="colorOnSurface">@color/on_surface</item>
+    <item name="colorSurfaceVariant">@color/surface_variant</item>
+    <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+    <item name="colorOutline">@color/outline</item>
+    <item name="colorError">@color/error</item>
+    <item name="android:statusBarColor">@color/bg</item>
+    <item name="android:navigationBarColor">@color/bg</item>
+    <item name="android:windowBackground">@color/bg</item>
+    <item name="materialAlertDialogTheme">@style/OminiDialog</item>
+  </style>
+
+  <style name="AppTheme" parent="Base.AppTheme" />
+
+  <style name="OminiDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+    <item name="shapeAppearanceOverlay">@style/OminiDialogShape</item>
+  </style>
+
+  <style name="OminiDialogShape">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">24dp</item>
+  </style>
+
+  <style name="Omini.Card" parent="Widget.Material3.CardView.Filled">
+    <item name="cardBackgroundColor">@color/card_bg</item>
+    <item name="cardCornerRadius">20dp</item>
+    <item name="cardElevation">2dp</item>
+    <item name="cardUseCompatPadding">false</item>
+  </style>
+
+  <style name="Omini.Button" parent="Widget.Material3.Button">
+    <item name="cornerRadius">16dp</item>
+    <item name="android:minHeight">52dp</item>
+    <item name="android:textSize">15sp</item>
+  </style>
+
+  <style name="Omini.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
+    <item name="cornerRadius">16dp</item>
+    <item name="android:minHeight">52dp</item>
+    <item name="android:textSize">15sp</item>
+  </style>
+
+  <style name="CameraModeChip" parent="">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">36dp</item>
+    <item name="android:layout_marginStart">4dp</item>
+    <item name="android:layout_marginEnd">4dp</item>
+    <item name="android:gravity">center</item>
+    <item name="android:paddingStart">14dp</item>
+    <item name="android:paddingEnd">14dp</item>
+    <item name="android:background">@drawable/bg_mode_chip</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">13sp</item>
+    <item name="android:checkMark">@null</item>
+  </style>
+
+  <style name="CropTool" parent="">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_weight">1</item>
+    <item name="android:orientation">vertical</item>
+    <item name="android:gravity">center_horizontal</item>
+    <item name="android:background">?attr/selectableItemBackground</item>
+    <item name="android:clickable">true</item>
+    <item name="android:focusable">true</item>
+    <item name="android:paddingTop">8dp</item>
+    <item name="android:paddingBottom">8dp</item>
+  </style>
+
+  <style name="CropToolIcon" parent="">
+    <item name="android:layout_width">26dp</item>
+    <item name="android:layout_height">26dp</item>
+    <item name="android:tint">@color/pink_primary</item>
+    <item name="android:importantForAccessibility">no</item>
+  </style>
+
+  <style name="CropToolLabel" parent="">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">6dp</item>
+    <item name="android:gravity">center</item>
+    <item name="android:maxLines">2</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:paddingStart">2dp</item>
+    <item name="android:paddingEnd">2dp</item>
+    <item name="android:textColor">@color/on_surface</item>
+    <item name="android:textSize">11.5sp</item>
+  </style>
+
+  <style name="AdjustRow" parent="">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">0dp</item>
+    <item name="android:layout_weight">1</item>
+    <item name="android:orientation">horizontal</item>
+    <item name="android:gravity">center_vertical</item>
+  </style>
+
+  <style name="AdjustLabel" parent="">
+    <item name="android:layout_width">92dp</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">@color/on_surface</item>
+    <item name="android:textSize">13sp</item>
+  </style>
+
+  <style name="AdjustSeek" parent="">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_weight">1</item>
+    <item name="android:progressTint">@color/pink_primary</item>
+    <item name="android:thumbTint">@color/pink_primary</item>
+  </style>
+
+  <style name="SettingsLabel" parent="">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">12dp</item>
+    <item name="android:textColor">@color/on_surface_variant</item>
+    <item name="android:textSize">13sp</item>
+  </style>
+</resources>
